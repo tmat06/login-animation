@@ -1,0 +1,87 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.animation-frame {
+  height: 300px;
+  width: 300px;
+  border-radius: 150px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#animation-head {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: chocolate;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#animation-body {
+  height: 300px;
+  width: 300px;
+  border-radius: 200px;
+  background-color: yellow;
+  position: absolute;
+  top: 100px;
+}
+
+#animation-eyes {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+}
+
+#animation-eye {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#animation-smile {
+  width: 50%;
+  height: 10px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+#animation-pupil {
+  /* position: absolute; */
+  z-index: 3;
+  background-color: black;
+  width: 20px;
+  height: 20px;
+}
+
+#sign-in-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
