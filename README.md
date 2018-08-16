@@ -1,1 +1,1 @@
-![gif of the dog login](/dog-login.gif)
+![gif of the dog login](/public/dog-login.gif)
