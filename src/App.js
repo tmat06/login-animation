@@ -238,6 +238,32 @@ class App extends Component {
               );
             }}
           </Motion>
+          <div
+            style={{
+              display: "flex",
+              position: "absolute",
+              bottom: -5,
+              justifyContent: "space-between",
+              width: "50%"
+            }}
+          >
+            <div
+              className="dog-paws"
+              style={{ transform: "rotate(30deg)", padding: "10px 0 0 0" }}
+            >
+              <div className="dog-claw" />
+              <div className="dog-claw" />
+              <div className="dog-claw" />
+            </div>
+            <div
+              className="dog-paws"
+              style={{ transform: "rotate(-30deg)", padding: "10px 0 0 0" }}
+            >
+              <div className="dog-claw" />
+              <div className="dog-claw" />
+              <div className="dog-claw" />
+            </div>
+          </div>
         </div>
         <div id="sign-in-container">
           <input
