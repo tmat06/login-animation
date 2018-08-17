@@ -180,6 +180,7 @@ class App extends Component {
                           return (
                             <div style={{ height: "100vh", width: "100%" }}>
                               <img
+                                alt="musical note"
                                 src="/note.png"
                                 style={{
                                   position: "absolute",
