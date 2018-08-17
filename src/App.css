@@ -172,3 +172,19 @@
   border-color: transparent transparent rgb(177, 79, 79) transparent;
   margin: -55px 0 0 0;
 }
+
+.dog-paws {
+  height: 50px;
+  width: 50px;
+  background-color: chocolate;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dog-claw {
+  height: 10px;
+  width: 10px;
+  background-color: black;
+}
