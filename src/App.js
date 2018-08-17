@@ -129,8 +129,8 @@ class App extends Component {
                   </Motion>
                 </div>
               </div>
-              <div id="monkey-mouth">
-                <div id="monkey-nose" />
+              <div id="dog-mouth">
+                <div id="dog-nose" />
                 <Motion
                   defaultStyle={{ x: 0, grin: 50 }}
                   style={{
@@ -162,7 +162,38 @@ class App extends Component {
             </div>
             <div className="dog-ear" style={{ transform: "rotate(-20deg)" }} />
           </div>
-          <div id="animation-body" />
+          <div id="animation-body">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <div
+                className="dog-collar"
+                style={{
+                  WebkitTransform: "skew(-20deg)",
+                  MozTransform: "skew(-20deg)",
+                  OTransform: "skew(-20deg)"
+                }}
+              />
+              <div id="dog-tie">
+                <div style={{ height: "110px" }} />
+
+                <div id="dog-knot-tie" />
+                <div id="dog-long-tie" />
+              </div>
+              <div
+                className="dog-collar"
+                style={{
+                  WebkitTransform: "skew(20deg)",
+                  MozTransform: "skew(20deg)",
+                  OTransform: "skew(20deg)"
+                }}
+              />
+            </div>
+          </div>
         </div>
         <div id="sign-in-container">
           <input
