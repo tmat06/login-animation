@@ -150,9 +150,13 @@ class App extends Component {
                       </div>
                     </div>
                     <div id="dog-mouth">
-                      <div id="dog-nose" />
                       <Motion
-                        defaultStyle={{ x: 0, grin: 50 }}
+                        defaultStyle={{
+                          x: 0,
+                          grin: 50,
+                          whistle: 0,
+                          opacity: 1
+                        }}
                         style={{
                           x: this.state.mouthMovement
                             ? this.state.passwordClick
@@ -163,18 +167,39 @@ class App extends Component {
                             ? this.state.passwordClick
                               ? spring(10)
                               : spring(20)
-                            : spring(50)
+                            : spring(50),
+                          whistle: this.state.passwordClick
+                            ? spring(50, { stiffness: 20, damping: 40 })
+                            : spring(0),
+                          opacity: this.state.passwordClick
+                            ? spring(1, { stiffness: 30, damping: 30 })
+                            : spring(0)
                         }}
                       >
                         {mot => {
                           return (
-                            <div
-                              id="animation-smile"
-                              style={{
-                                transform: `translateX(${mot.x}px)`,
-                                width: `${mot.grin}%`
-                              }}
-                            />
+                            <div style={{ height: "100vh", width: "100%" }}>
+                              <img
+                                src="/note.png"
+                                style={{
+                                  position: "absolute",
+                                  left: 0,
+                                  top: 60,
+                                  height: 50,
+                                  width: 30,
+                                  opacity: mot.opacity,
+                                  transform: `translateY(-${mot.whistle}px)`
+                                }}
+                              />
+                              <div id="dog-nose" />
+                              <div
+                                id="animation-smile"
+                                style={{
+                                  transform: `translateX(${mot.x}px)`,
+                                  width: `${mot.grin}%`
+                                }}
+                              />
+                            </div>
                           );
                         }}
                       </Motion>
