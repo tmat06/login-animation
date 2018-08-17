@@ -55,145 +55,189 @@ class App extends Component {
     return (
       <div className="App">
         <div className="animation-frame">
-          <div
+          <Motion
+            defaultStyle={{ head: 0, ears: 20 }}
             style={{
-              width: "120%",
-              display: "flex",
-              justifyContent: "space-around",
-              alignItems: "center"
+              head: this.state.inputClick
+                ? spring(10, { stiffness: 50, damping: 30 })
+                : spring(0),
+              ears: this.state.inputClick
+                ? spring(30, { stiffness: 50, damping: 30 })
+                : spring(20)
             }}
           >
-            <div className="dog-ear" style={{ transform: "rotate(20deg)" }} />
-            <div id="animation-head">
-              <div id="animation-eyes">
-                <div id="animation-eye">
-                  <Motion
-                    defaultStyle={{
-                      x: this.state.eyeMovement,
-                      y: 0
-                    }}
-                    style={{
-                      x: this.state.inputClick
-                        ? spring(this.state.eyeMovement - 7)
-                        : this.state.passwordClick
-                          ? spring(-15)
-                          : spring(this.state.eyeMovement),
-                      y: this.state.inputClick
-                        ? spring(15)
-                        : this.state.passwordClick
-                          ? spring(-15)
-                          : spring(0)
-                    }}
-                  >
-                    {mot => {
-                      return (
-                        <div
-                          id="animation-pupil"
-                          style={{
-                            transform: `translate(${mot.x}px, ${mot.y}px)`
-                          }}
-                        />
-                      );
-                    }}
-                  </Motion>
-                </div>
-                <div id="animation-eye">
-                  <Motion
-                    defaultStyle={{
-                      x: 0,
-                      y: 0
-                    }}
-                    style={{
-                      x: this.state.inputClick
-                        ? spring(this.state.eyeMovement - 7)
-                        : this.state.passwordClick
-                          ? spring(-15)
-                          : spring(this.state.eyeMovement),
-                      y: this.state.inputClick
-                        ? spring(15)
-                        : this.state.passwordClick
-                          ? spring(-15)
-                          : spring(0)
-                    }}
-                  >
-                    {mot => {
-                      return (
-                        <div
-                          id="animation-pupil"
-                          style={{
-                            transform: `translate(${mot.x}px, ${mot.y}px)`
-                          }}
-                        />
-                      );
-                    }}
-                  </Motion>
-                </div>
-              </div>
-              <div id="dog-mouth">
-                <div id="dog-nose" />
-                <Motion
-                  defaultStyle={{ x: 0, grin: 50 }}
+            {overMot => {
+              return (
+                <div
                   style={{
-                    x: this.state.mouthMovement
-                      ? this.state.passwordClick
-                        ? spring(0)
-                        : spring(15, { stiffness: 30, damping: 15 })
-                      : spring(0),
-                    grin: this.state.mouthMovement
-                      ? this.state.passwordClick
-                        ? spring(10)
-                        : spring(20)
-                      : spring(50)
+                    width: "120%",
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    transform: `translate(-${overMot.head}px, ${
+                      overMot.head
+                    }px)`,
+                    zIndex: 4
                   }}
                 >
-                  {mot => {
-                    return (
-                      <div
-                        id="animation-smile"
+                  <div
+                    className="dog-ear"
+                    style={{ transform: `rotate(${overMot.ears}deg)` }}
+                  />
+                  <div id="animation-head">
+                    <div id="animation-eyes">
+                      <div id="animation-eye">
+                        <Motion
+                          defaultStyle={{
+                            x: this.state.eyeMovement,
+                            y: 0
+                          }}
+                          style={{
+                            x: this.state.inputClick
+                              ? spring(this.state.eyeMovement - 7)
+                              : this.state.passwordClick
+                                ? spring(-15)
+                                : spring(this.state.eyeMovement),
+                            y: this.state.inputClick
+                              ? spring(15)
+                              : this.state.passwordClick
+                                ? spring(-15)
+                                : spring(0)
+                          }}
+                        >
+                          {mot => {
+                            return (
+                              <div
+                                id="animation-pupil"
+                                style={{
+                                  transform: `translate(${mot.x}px, ${mot.y}px)`
+                                }}
+                              />
+                            );
+                          }}
+                        </Motion>
+                      </div>
+                      <div id="animation-eye">
+                        <Motion
+                          defaultStyle={{
+                            x: 0,
+                            y: 0
+                          }}
+                          style={{
+                            x: this.state.inputClick
+                              ? spring(this.state.eyeMovement - 7)
+                              : this.state.passwordClick
+                                ? spring(-15)
+                                : spring(this.state.eyeMovement),
+                            y: this.state.inputClick
+                              ? spring(15)
+                              : this.state.passwordClick
+                                ? spring(-15)
+                                : spring(0)
+                          }}
+                        >
+                          {mot => {
+                            return (
+                              <div
+                                id="animation-pupil"
+                                style={{
+                                  transform: `translate(${mot.x}px, ${mot.y}px)`
+                                }}
+                              />
+                            );
+                          }}
+                        </Motion>
+                      </div>
+                    </div>
+                    <div id="dog-mouth">
+                      <div id="dog-nose" />
+                      <Motion
+                        defaultStyle={{ x: 0, grin: 50 }}
                         style={{
-                          transform: `translateX(${mot.x}px)`,
-                          width: `${mot.grin}%`
+                          x: this.state.mouthMovement
+                            ? this.state.passwordClick
+                              ? spring(0)
+                              : spring(15, { stiffness: 30, damping: 15 })
+                            : spring(0),
+                          grin: this.state.mouthMovement
+                            ? this.state.passwordClick
+                              ? spring(10)
+                              : spring(20)
+                            : spring(50)
                         }}
-                      />
-                    );
-                  }}
-                </Motion>
-              </div>
-            </div>
-            <div className="dog-ear" style={{ transform: "rotate(-20deg)" }} />
-          </div>
-          <div id="animation-body">
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
-            >
-              <div
-                className="dog-collar"
-                style={{
-                  WebkitTransform: "skew(-20deg)",
-                  MozTransform: "skew(-20deg)",
-                  OTransform: "skew(-20deg)"
-                }}
-              />
-              <div id="dog-tie">
-                <div style={{ height: "110px" }} />
+                      >
+                        {mot => {
+                          return (
+                            <div
+                              id="animation-smile"
+                              style={{
+                                transform: `translateX(${mot.x}px)`,
+                                width: `${mot.grin}%`
+                              }}
+                            />
+                          );
+                        }}
+                      </Motion>
+                    </div>
+                  </div>
+                  <div
+                    className="dog-ear"
+                    style={{
+                      transform: `rotate(-${overMot.ears}deg)`
+                    }}
+                  />
+                </div>
+              );
+            }}
+          </Motion>
+          <Motion
+            defaultStyle={{ body: 0 }}
+            style={{
+              body: this.state.inputClick
+                ? spring(10, { stiffness: 50, damping: 30 })
+                : spring(0)
+            }}
+          >
+            {bodyMot => {
+              return (
+                <div
+                  id="animation-body"
+                  style={{ transform: `rotate(-${bodyMot.body}deg)` }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
+                  >
+                    <div
+                      className="dog-collar"
+                      style={{
+                        WebkitTransform: "skew(-20deg)",
+                        MozTransform: "skew(-20deg)",
+                        OTransform: "skew(-20deg)"
+                      }}
+                    />
+                    <div id="dog-tie">
+                      <div style={{ height: "110px" }} />
 
-                <div id="dog-knot-tie" />
-                <div id="dog-long-tie" />
-              </div>
-              <div
-                className="dog-collar"
-                style={{
-                  WebkitTransform: "skew(20deg)",
-                  MozTransform: "skew(20deg)",
-                  OTransform: "skew(20deg)"
-                }}
-              />
-            </div>
-          </div>
+                      <div id="dog-knot-tie" />
+                      <div id="dog-long-tie" />
+                    </div>
+                    <div
+                      className="dog-collar"
+                      style={{
+                        WebkitTransform: "skew(20deg)",
+                        MozTransform: "skew(20deg)",
+                        OTransform: "skew(20deg)"
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            }}
+          </Motion>
         </div>
         <div id="sign-in-container">
           <input
