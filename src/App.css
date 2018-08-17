@@ -108,18 +108,19 @@
 }
 
 #dog-nose {
-  height: 10px;
-  width: 10px;
-  border-radius: 10px;
-  background-color: black;
-  margin: 4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 10px 0 10px;
+  border-color: black transparent transparent transparent;
+  margin: 2px;
 }
 
 .dog-ear {
   height: 100px;
   width: 30px;
   border-radius: 25px;
-  background-color: black;
+  background-color: rgb(43, 28, 28);
   /* z-index: 2; */
 }
 
